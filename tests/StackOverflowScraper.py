@@ -1,7 +1,7 @@
 #
 # StackOverflow questions scraper
 #
-
+# practical
 # import necessary libraries
 import json
 import requests

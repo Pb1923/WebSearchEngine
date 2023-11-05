@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<style>
+      body{
+        background : #C8A2C8;
+        }
+
+        .container button {
+        display: inline-block;
+        background-color: 	#BA55D3;
+        padding: 20px;
+        width: 150px;
+        color: #ffffff;
+        text-align: center;
+        font-family : sans-serif;
+
+      }
+
+      .container button:hover{
+        background: transparent;
+        border:1px solid #BA55D3;
+    }
+
+       .container form{
+          padding-left : 150px;
+          padding-right : 150px ;
+          padding-top : 40px;
+
+       }
+
+    </style>
+
+
+
+  <div class="container">
+    <form class="mt-5" name="search" action="/search_results">
+      <div class="col-6 mx-auto input-group">
+        <input type="text" class="form-control" name="search" placeholder="search...">
+        <button type="submit" class="btn btn-success">Search</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col mt-5"></div>
+
+  <div class="container">
+    {% if len(search_results) == 0 %}
+      <strong>Your search did not match any documents. </strong>
+    {% endif %}
+
+    {% for link in search_results %}
+      <div class="mt-3">
+
+        <div class="col">
+        <strong><a href="{{ link.url }}">{{ link.title }}</a></strong>
+        </div>
+
+        <div class="col">
+          <a href="{{ link.url }}">{{ link.url }}</a>
+          <p>{{ link.description[:300] }}...</p>
+        </div>
+      </div>
+    {% endfor %}
+
+    <!-- Pagination -->
+	  <div class="col col-3 mt-4 mx-auto">
+      {{ pagination.links }}
+	  </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+  <style>
+      body{
+        background : #C8A2C8;
+        }
+
+        .col button {
+        display: inline-block;
+        background-color: 	#BA55D3;
+        padding: 20px;
+        width: 150px;
+        color: #ffffff;
+        text-align: center;
+        font-family : sans-serif;
+
+      }
+
+      .col button:hover{
+        background: transparent;
+        border:1px solid #BA55D3;
+    }
+
+       .col form{
+          padding-left : 150px;
+          padding-right : 150px ;
+          padding-top : 40px;
+
+       }
+
+    </style>
+
+  <body>
+  <div class="col">
+
+
+    <div class="col mt-5">
+      <img src="{{url_for('static', filename='./images/Search icon interaction.gif')}}" class="mx-auto d-block" style="width: 25%; height: 25%">
+    </div>
+
+
+
+    <form class="mt-10" name="search" action="/search_results">
+      <div class="col-6 mx-auto input-group">
+        <input type="text" size="10" class="form-control" name="search" placeholder="search..." >
+            <!--a href="#">Search</a-->
+
+        <button type="submit" class="btn btn-success">Search</button>
+      </div>
+    </form>
+  </div>
+  </body>
+{% endblock %}
